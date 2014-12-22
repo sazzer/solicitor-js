@@ -1,0 +1,27 @@
+{
+  "name": "solicitor",
+  "version": "0.0.1",
+  "description": "Design By Contract for Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --recursive spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sazzer/solicitor-js"
+  },
+  "keywords": [
+    "contract",
+    "dbc"
+  ],
+  "author": "Graham Cox <graham@grahamcox.co.uk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sazzer/solicitor-js/issues"
+  },
+  "homepage": "https://github.com/sazzer/solicitor-js",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1"
+  }
+}
