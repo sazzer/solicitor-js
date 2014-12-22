@@ -1,6 +1,7 @@
 'use strict';
 
-var Contract = require('./lib/contract');
+var Contract = require('./lib/contract'),
+    fillers = require('./lib/fillers');
 
 /**
  * Method to wrap the value of a method argument in a Contract so that it can be verified
@@ -15,5 +16,10 @@ module.exports = {
     argument: argument,
     arg: argument,
     parameter: argument,
-    param: argument
+    param: argument,
+    
+    fillers: {
+        list: fillers.fillers,
+        add: fillers.registerFiller
+    }
 }
