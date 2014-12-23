@@ -42,4 +42,19 @@ describe('The Solicitor Library', function() {
             }).throws();
         });
     });
+    describe('Chaining of checks', function() {
+        it('Passes all checks if it should', function() {
+            solicitor.arg(5).is.a.number.inRange(1, 10);
+        });
+        it('Fails the first check if it should', function() {
+            expect(function() {
+                solicitor.arg('5').is.a.number.inRange(1, 10);
+            }).throws();
+        });
+        it('Fails the second check if it should', function() {
+            expect(function() {
+                solicitor.arg(50).is.a.number.inRange(1, 10);
+            }).throws();
+        });
+    })
 });
