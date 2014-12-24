@@ -1,6 +1,7 @@
 'use strict';
 
 var Contract = require('./lib/contract'),
+    checks = require('./lib/checks'),
     fillers = require('./lib/fillers');
 
 /**
@@ -21,5 +22,10 @@ module.exports = {
     fillers: {
         list: fillers.fillers,
         add: fillers.registerFiller
+    },
+    
+    checks: {
+        list: checks.checks,
+        add: checks.registerCheck
     }
 }
