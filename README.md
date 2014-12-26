@@ -1,5 +1,6 @@
 solicitor-js
 ============
+[![Build Status](https://travis-ci.org/sazzer/solicitor-js.svg?branch=master)](https://travis-ci.org/sazzer/solicitor-js)
 
 Design By Contract for your Javascript code
 
