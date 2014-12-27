@@ -191,6 +191,60 @@ describe('The Solicitor Library', function() {
             solicitor.arg(undefined).is.maximumLength(6);
         });
     });
+    describe('When doing a regex match', function() {
+        it('on a valid string, it should pass', function() {
+            solicitor.arg('graham@grahamcox.co.uk').matches(/^[^@]+@.+/);
+        });
+        it('on an invalid string, it should fail', function() {
+            expect(function() {
+                solicitor.arg('graham').matches(/^[^@]+@.+/);
+            }).throws();
+        });
+        it('on a number, it should pass', function() {
+            solicitor.arg(5).matches(/^[^@]+@.+/);
+        });
+        it('on undefined, it should pass', function() {
+            solicitor.arg(undefined).matches(/^[^@]+@.+/);
+        });
+    });
+    describe('When registering custom checks', function() {
+        describe('For a Simple check', function() {
+            it('Passes if the check returns true', function() {
+                solicitor.checks.add('newSimple', function() {return true;}, true);
+                solicitor.arg(1).newSimple;
+            });
+            it('Fails if the check returns false', function() {
+                solicitor.checks.add('newSimple', function() {return false;}, true);
+                expect(function() {
+                    solicitor.arg(1).newSimple;
+                }).throws();
+            });
+            it('Correctly accepts the value to check', function() {
+                solicitor.checks.add('newSimple', function(v) {return v === 1;}, true);
+                solicitor.arg(1).newSimple;
+            });
+        });
+        describe('For an Advanced check', function() {
+            it('Passes if the check returns true', function() {
+                solicitor.checks.add('newAdvanced', function() {return true;}, false);
+                solicitor.arg(1).newAdvanced();
+            });
+            it('Fails if the check returns false', function() {
+                solicitor.checks.add('newAdvanced', function() {return false;}, false);
+                expect(function() {
+                    solicitor.arg(1).newAdvanced();
+                }).throws();
+            });
+            it('Correctly accepts the value to check', function() {
+                solicitor.checks.add('newAdvanced', function(v) {return v === 1;}, false);
+                solicitor.arg(1).newAdvanced();
+            });
+            it('Correctly accepts parameters', function() {
+                solicitor.checks.add('newAdvanced', function(v, p1, p2) {return v === p1 + p2;}, false);
+                solicitor.arg(3).newAdvanced(1, 2);
+            });
+        });
+    });
     describe('Chaining of checks', function() {
         it('Passes all checks if it should', function() {
             solicitor.arg(5).is.a.number.inRange(1, 10);
