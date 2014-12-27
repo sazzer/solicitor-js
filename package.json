@@ -4,7 +4,7 @@
   "description": "Design By Contract for Javascript",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec --recursive spec"
+    "test": "istanbul cover _mocha --reporter spec --recursive spec"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/sazzer/solicitor-js",
   "devDependencies": {
     "chai": "^1.10.0",
+    "istanbul": "^0.3.5",
     "mocha": "^2.0.1"
   }
 }
