@@ -1,6 +1,7 @@
 solicitor-js
 ============
 [![Build Status](https://travis-ci.org/sazzer/solicitor-js.svg?branch=master)](https://travis-ci.org/sazzer/solicitor-js)
+[![Coverage Status](https://coveralls.io/repos/sazzer/solicitor-js/badge.png?branch=master)](https://coveralls.io/r/sazzer/solicitor-js?branch=master)
 
 Design By Contract for your Javascript code
 
