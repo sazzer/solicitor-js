@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover _mocha --reporter spec --recursive spec",
-    "coverage": "cat coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coverage": "CODECLIMATE_REPO_TOKEN=dd1cb5c532f7d56ce9d5158e969731a3af5a4945c4f591a599cbab7f8aed5202 codeclimate < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   "homepage": "https://github.com/sazzer/solicitor-js",
   "devDependencies": {
     "chai": "^1.10.0",
-    "coveralls": "^2.11.2",
+    "codeclimate-test-reporter": "0.0.4",
     "istanbul": "^0.3.5",
     "mocha": "^2.0.1"
   }
