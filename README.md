@@ -105,6 +105,7 @@ The current list of Check Words that can be used are:
  * minimumLength - Ensures that the length of the string or array is no less than the provided minimum value
  * maximumLength - Ensures that the length of the string or array is no less than the provided maximum value
  * matches - Ensures that the string matches the provided regular expression
+ * instanceOf - Ensures that the value is an instance of the provided Constructor class
  
 #### What if I want more words?
 As with Filler Words, if you want more Check Words you can register your own by calling
