@@ -207,6 +207,46 @@ describe('The Solicitor Library', function() {
             solicitor.arg(undefined).matches(/^[^@]+@.+/);
         });
     });
+    describe('When checking for an instance of a class', function() {
+        function Constructor() {}
+        function Subclass() {}
+        Subclass.prototype = new Constructor();
+        
+        it('on a valid instance, it should pass', function() {
+            solicitor.arg(new Constructor()).is.an.instanceOf(Constructor);
+        });
+        it('on a valid subclass instance, it should pass', function() {
+            solicitor.arg(new Subclass()).is.an.instanceOf(Constructor);
+        });
+        it('on a valid superclass instance, it should pass', function() {
+            expect(function() {
+                solicitor.arg(new Constructor()).is.an.instanceOf(Subclass);
+            }).throws();
+        });
+        it('on a string, it should fail', function() {
+            expect(function() {
+                solicitor.arg('graham').is.an.instanceOf(Constructor);
+            }).throws();
+        });
+        it('on the Constructor function, it should fail', function() {
+            expect(function() {
+                solicitor.arg(Constructor).is.an.instanceOf(Constructor);
+            }).throws();
+        });
+        it('on the Subclass Constructor function, it should fail', function() {
+            expect(function() {
+                solicitor.arg(Subclass).is.an.instanceOf(Constructor);
+            }).throws();
+        });
+        it('on the Superclass Constructor function, it should fail', function() {
+            expect(function() {
+                solicitor.arg(Constructor).is.an.instanceOf(Subclass);
+            }).throws();
+        });
+        it('on undefined, it should pass', function() {
+            solicitor.arg(undefined).is.an.instanceOf(Constructor);
+        });
+    });
     describe('When registering custom checks', function() {
         describe('For a Simple check', function() {
             it('Passes if the check returns true', function() {
