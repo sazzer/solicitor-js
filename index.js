@@ -28,4 +28,4 @@ module.exports = {
         list: checks.checks,
         add: checks.registerCheck
     }
-}
+};
