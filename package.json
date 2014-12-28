@@ -1,6 +1,6 @@
 {
   "name": "solicitor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Design By Contract for Javascript",
   "main": "index.js",
   "scripts": {
